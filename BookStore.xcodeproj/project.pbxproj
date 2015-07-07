@@ -15,6 +15,9 @@
 		1E7546431B4BBCC200A8BC1C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1E7546421B4BBCC200A8BC1C /* Images.xcassets */; };
 		1E7546461B4BBCC200A8BC1C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E7546441B4BBCC200A8BC1C /* LaunchScreen.xib */; };
 		1E7546521B4BBCC200A8BC1C /* BookStoreTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E7546511B4BBCC200A8BC1C /* BookStoreTests.m */; };
+		1E75466E1B4BC28B00A8BC1C /* Book.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E7546691B4BC28B00A8BC1C /* Book.m */; };
+		1E75466F1B4BC28B00A8BC1C /* BookCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E75466B1B4BC28B00A8BC1C /* BookCategory.m */; };
+		1E7546701B4BC28B00A8BC1C /* Page.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E75466D1B4BC28B00A8BC1C /* Page.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +45,12 @@
 		1E75464B1B4BBCC200A8BC1C /* BookStoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BookStoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E7546501B4BBCC200A8BC1C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1E7546511B4BBCC200A8BC1C /* BookStoreTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BookStoreTests.m; sourceTree = "<group>"; };
+		1E7546681B4BC28B00A8BC1C /* Book.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Book.h; sourceTree = "<group>"; };
+		1E7546691B4BC28B00A8BC1C /* Book.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Book.m; sourceTree = "<group>"; };
+		1E75466A1B4BC28B00A8BC1C /* BookCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookCategory.h; sourceTree = "<group>"; };
+		1E75466B1B4BC28B00A8BC1C /* BookCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookCategory.m; sourceTree = "<group>"; };
+		1E75466C1B4BC28B00A8BC1C /* Page.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Page.h; sourceTree = "<group>"; };
+		1E75466D1B4BC28B00A8BC1C /* Page.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Page.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +92,12 @@
 		1E7546311B4BBCC200A8BC1C /* BookStore */ = {
 			isa = PBXGroup;
 			children = (
+				1E7546681B4BC28B00A8BC1C /* Book.h */,
+				1E7546691B4BC28B00A8BC1C /* Book.m */,
+				1E75466A1B4BC28B00A8BC1C /* BookCategory.h */,
+				1E75466B1B4BC28B00A8BC1C /* BookCategory.m */,
+				1E75466C1B4BC28B00A8BC1C /* Page.h */,
+				1E75466D1B4BC28B00A8BC1C /* Page.m */,
 				1E7546361B4BBCC200A8BC1C /* AppDelegate.h */,
 				1E7546371B4BBCC200A8BC1C /* AppDelegate.m */,
 				1E75463C1B4BBCC200A8BC1C /* ViewController.h */,
@@ -222,9 +237,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E75466E1B4BC28B00A8BC1C /* Book.m in Sources */,
+				1E7546701B4BC28B00A8BC1C /* Page.m in Sources */,
 				1E7546381B4BBCC200A8BC1C /* AppDelegate.m in Sources */,
 				1E7546351B4BBCC200A8BC1C /* main.m in Sources */,
 				1E75463E1B4BBCC200A8BC1C /* ViewController.m in Sources */,
+				1E75466F1B4BC28B00A8BC1C /* BookCategory.m in Sources */,
 				1E75463B1B4BBCC200A8BC1C /* BookStore.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

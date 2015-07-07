@@ -7,6 +7,10 @@
 //
 
 #import "AppDelegate.h"
+#import "Book.h"
+#import "BookCategory.h"
+#import "Page.h"
+
 
 @interface AppDelegate ()
 
@@ -16,8 +20,59 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    [self initStore];
+    [self showExampleData];
     return YES;
+}
+
+- (void)showExampleData {
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"BookCategory"];
+    NSArray *categories = [self.managedObjectContext executeFetchRequest:fetchRequest error:NULL];
+    for (BookCategory *category in categories) {
+        NSArray *bargainBooks = [category valueForKey:@"bargainBooks"];
+        NSLog(@"Bargains for category: %@", category.name);
+        for (Book *book in bargainBooks) {
+            NSLog(@"Title : %@, price: %.2f", book.title, book.price);
+        }
+    }
+}
+
+- (void)initStore {
+    [self deleteAllObjects:@"Book"];
+    [self deleteAllObjects:@"BookCategory"];
+
+    BookCategory *fiction = [NSEntityDescription insertNewObjectForEntityForName:@"BookCategory" inManagedObjectContext:self.managedObjectContext];
+    fiction.name = @"Fiction";
+    BookCategory *biography = [NSEntityDescription insertNewObjectForEntityForName:@"BookCategory" inManagedObjectContext:self.managedObjectContext];
+    biography.name = @"Biography";
+    Book *book1 = [NSEntityDescription insertNewObjectForEntityForName:@"Book" inManagedObjectContext:self.managedObjectContext];
+    book1.title = @"The first book";
+    book1.price = 10;
+    
+    Book *book2 = [NSEntityDescription insertNewObjectForEntityForName:@"Book" inManagedObjectContext:self.managedObjectContext];
+    book2.title = @"The second book";
+    book2.price = 15;
+    
+    Book *book3 = [NSEntityDescription insertNewObjectForEntityForName:@"Book" inManagedObjectContext:self.managedObjectContext];
+    book3.title = @"The third book";
+    book3.price = 10;
+    
+    [fiction addBooks:[NSSet setWithArray:@[book1, book2]]];
+    [biography addBooks:[NSSet setWithArray:@[book3]]];
+    
+    [self.managedObjectContext save:NULL];
+}
+
+- (void)deleteAllObjects:(NSString *)entityName {
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:entityName];
+    NSError *error;
+    NSArray *items = [self.managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    for (NSManagedObject *managedObject in items) {
+        [self.managedObjectContext deleteObject:managedObject];
+    }
+    if (![self.managedObjectContext save:&error]) {
+        NSLog(@"Error deleting %@ - error:%@", entityName, error);
+    }
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
